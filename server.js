@@ -15,6 +15,12 @@ app.get('/page/:count', (req, res) => {
 });
 
 function generatePage(yesCount) {
+  // Ensure minimum count of 2
+  yesCount = Math.max(2, yesCount);
+  
+  const FLEE_DISTANCE_THRESHOLD = 100;
+  const BUTTON_MARGIN = 50;
+  
   const yesButtons = [];
   const yesLabels = [
     'Yes! 😍',
@@ -146,10 +152,10 @@ function generatePage(yesCount) {
             const distanceY = e.clientY - btnCenterY;
             const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
             
-            // If mouse is within 100px of the button, move it away
-            if (distance < 100) {
-                const maxX = window.innerWidth - btnRect.width - 50;
-                const maxY = window.innerHeight - btnRect.height - 50;
+            // If mouse is within ${FLEE_DISTANCE_THRESHOLD}px of the button, move it away
+            if (distance < ${FLEE_DISTANCE_THRESHOLD}) {
+                const maxX = window.innerWidth - btnRect.width - ${BUTTON_MARGIN};
+                const maxY = window.innerHeight - btnRect.height - ${BUTTON_MARGIN};
                 
                 let newX = Math.random() * maxX;
                 let newY = Math.random() * maxY;
