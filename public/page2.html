@@ -89,7 +89,6 @@
 
     <script>
         const noBtn = document.getElementById('noBtn');
-        let clickCount = 0;
 
         // Handle mouse movement near the No button
         document.addEventListener('mousemove', (e) => {
@@ -118,10 +117,7 @@
 
         // Handle click on No button
         noBtn.addEventListener('click', () => {
-            clickCount++;
-            if (clickCount >= 1) {
-                window.location.href = '/page3';
-            }
+            window.location.href = '/page3';
         });
 
         function handleYes() {
