@@ -5,14 +5,14 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY --chown=node:node package*.json ./
 
 # Install dependencies
 RUN npm install --omit=dev
 
 # Copy application files
-COPY server.js ./
-COPY public ./public
+COPY --chown=node:node server.js ./
+COPY --chown=node:node public ./public
 
 # Expose port
 EXPOSE 3000
