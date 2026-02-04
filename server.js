@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 app.get('/page/:count', (req, res) => {
   const parsedCount = Number.parseInt(req.params.count, 10);
-  const count = Number.isFinite(parsedCount) ? parsedCount : 2;
+  const count = Number.isFinite(parsedCount) ? Math.max(2, parsedCount) : 2;
   res.send(generatePage(count));
 });
 
