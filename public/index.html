@@ -98,8 +98,8 @@
             
             // If mouse is within 100px of the button, move it away
             if (distance < 100) {
-                const maxX = window.innerWidth - btnRect.width - 50;
-                const maxY = window.innerHeight - btnRect.height - 50;
+                const maxX = Math.max(0, window.innerWidth - btnRect.width - 50);
+                const maxY = Math.max(0, window.innerHeight - btnRect.height - 50);
                 
                 let newX = Math.random() * maxX;
                 let newY = Math.random() * maxY;
