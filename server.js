@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/page/:count', (req, res) => {
-  const count = parseInt(req.params.count) || 2;
+  const parsedCount = Number.parseInt(req.params.count, 10);
+  const count = Number.isFinite(parsedCount) ? parsedCount : 2;
   res.send(generatePage(count));
 });
 
@@ -159,8 +160,8 @@ function generatePage(yesCount) {
             
             // If mouse is within ${FLEE_DISTANCE_THRESHOLD}px of the button, move it away
             if (distance < ${FLEE_DISTANCE_THRESHOLD}) {
-                const maxX = window.innerWidth - btnRect.width - ${BUTTON_MARGIN};
-                const maxY = window.innerHeight - btnRect.height - ${BUTTON_MARGIN};
+                const maxX = Math.max(0, window.innerWidth - btnRect.width - ${BUTTON_MARGIN});
+                const maxY = Math.max(0, window.innerHeight - btnRect.height - ${BUTTON_MARGIN});
                 
                 let newX = Math.random() * maxX;
                 let newY = Math.random() * maxY;
