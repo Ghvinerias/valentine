@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: valentine
+  namespace: valentine
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ghvinerias/valentine.git
+    targetRevision: main
+    path: k8s
+  destination:
+    server: https://valentine.cloud.k8s.slick.ge
+    namespace: valentine
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

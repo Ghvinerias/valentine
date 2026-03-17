@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: valentine
-        image: slickg/valentine:latest
+        image: slickg/valentine:8bda4ff
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
@@ -33,7 +33,7 @@ spec:
             cpu: 100m
             memory: 128Mi
           limits:
-cpu: 500m
+            cpu: 500m
             memory: 512Mi
         livenessProbe:
           httpGet:
