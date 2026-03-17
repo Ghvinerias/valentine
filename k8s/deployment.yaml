@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: valentine
-        image: slickg/valentine:8bda4ff
-        imagePullPolicy: IfNotPresent
+        image: slickg/valentine:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
           name: http

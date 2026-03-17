@@ -3,6 +3,11 @@ kind: Application
 metadata:
   name: valentine
   namespace: valentine
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: valentine=slickg/valentine
+    argocd-image-updater.argoproj.io/valentine.update-strategy: digest
+    argocd-image-updater.argoproj.io/valentine.allow-tags: regexp:^latest$
+    argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   project: default
   source:
