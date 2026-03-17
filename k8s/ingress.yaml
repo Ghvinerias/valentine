@@ -10,17 +10,17 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-  - hosts:
-    - valentine.example.com
-    secretName: valentine-tls-secret
+    - hosts:
+        - valentine.cloud.k8s.slick.ge
+      secretName: valentine-tls-secret
   rules:
-  - host: valentine.example.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: valentine
-            port:
-              number: 80
+    - host: valentine.cloud.k8s.slick.ge
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: valentine
+                port:
+                  number: 80
